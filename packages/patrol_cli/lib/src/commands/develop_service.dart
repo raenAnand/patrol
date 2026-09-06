@@ -724,6 +724,8 @@ class DevelopService {
         reportTestsCompleted(TestCompletionResult(success: false, error: err));
         rethrow;
       }
+    } on ToolExit {
+      rethrow;
     } catch (err, st) {
       _logger
         ..err('$err')
